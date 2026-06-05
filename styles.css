@@ -87,8 +87,11 @@ ul { list-style: none; }
 }
 
 .nav-logo-img {
-  height: 32px;
+  height: 36px;
   width: auto;
+  object-fit: contain;
+  /* Si el logo tiene fondo oscuro, esto lo adapta al navbar claro */
+  filter: brightness(0) saturate(100%) invert(18%) sepia(80%) saturate(1500%) hue-rotate(210deg) brightness(90%);
 }
 
 .nav-links {
@@ -597,6 +600,28 @@ a.detail-value:hover { color: var(--blue); }
   pointer-events: none;
 }
 
+/* Alertas del formulario */
+.form-alert {
+  padding: 14px 18px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.form-alert--success {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #059669;
+}
+
+.form-alert--error {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #dc2626;
+}
+
 /* Form */
 .contact-form-wrap {
   background: var(--bg-card);
@@ -693,9 +718,17 @@ select.form-input {
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-.footer-brand .nav-logo {
-  color: #fff;
+.footer-logo {
+  display: inline-block;
   margin-bottom: 14px;
+}
+
+.footer-logo-img {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+  /* Invierte el logo a blanco para el footer oscuro */
+  filter: brightness(0) invert(1);
 }
 
 .footer-brand p {
